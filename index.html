@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="en-ZA">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Affordable static website creation services in South Africa. Mobile-friendly websites from R400. kasimadewebz.co.za">
+    <meta name="keywords" content="website design, static website, affordable website, South Africa, web development, mobile friendly">
+    <meta name="author" content="kasimadewebz.co.za">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="Kasimade Webz — Affordable Static Websites from R400">
+    <meta property="og:description" content="Get a 100% static, mobile-friendly website. Prices from R400 to R1,000.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://kasimadewebz.co.za">
+    <meta property="og:locale" content="en_ZA">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Kasimade Webz — Affordable Static Websites">
+    <meta name="twitter:description" content="100% static, mobile-friendly websites from R400.">
+
+    <link rel="apple-touch-icon" sizes="180x180" href="/_fav/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/_fav/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/_fav/favicon-16x16.png">
+    <link rel="manifest" href="/_fav/site.webmanifest">
+
+    <title>Kasimade Webz — Affordable Static Websites from R400 | kasimadewebz.co.za</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400..800&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        geist: ['Geist', 'sans-serif'],
+                        newsreader: ['Newsreader', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body { font-family: 'Geist', sans-serif; overflow-x: hidden; }
+
+        @keyframes revealBlurSlide {
+            0% { opacity: 0; transform: translateY(40px) scale(0.98); filter: blur(12px); }
+            100% { opacity: 1; transform: translateY(0) scale(1); filter: blur(0px); }
+        }
+        .reveal { opacity: 0; }
+        .reveal.active { animation: revealBlurSlide 1.2s cubic-bezier(0.16, 1, 0.3, 1) both; }
+        .delay-100 { animation-delay: 100ms !important; }
+        .delay-200 { animation-delay: 200ms !important; }
+        .delay-300 { animation-delay: 300ms !important; }
+
+        @keyframes beam-spin {
+            from { transform: translate(-50%, -50%) rotate(0deg); }
+            to { transform: translate(-50%, -50%) rotate(360deg); }
+        }
+        .btn-beam {
+            position: relative; overflow: hidden;
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.1);
+            transition: transform 0.3s ease;
+        }
+        .btn-beam:hover { transform: scale(1.02); }
+        .btn-beam::before {
+            content: ''; position: absolute; top: 50%; left: 50%;
+            width: 200%; height: 200%;
+            background: conic-gradient(from 0deg, transparent 0 340deg, white 360deg);
+            animation: beam-spin 3s linear infinite;
+            opacity: 0; transition: opacity 0.3s;
+        }
+        .btn-beam:hover::before { opacity: 1; }
+        .btn-beam .btn-inner {
+            position: relative; z-index: 1; background: #0a0a0a;
+            border-radius: inherit; padding: 1.25rem 3.5rem;
+        }
+
+        .btn-dark {
+            position: relative; overflow: hidden;
+            background: #0a0a0a; color: #fff;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .btn-dark:hover { transform: scale(1.02); box-shadow: 0 20px 40px -5px rgba(0,0,0,0.2); }
+        .btn-dark::before {
+            content: ''; position: absolute; top: 50%; left: 50%;
+            width: 200%; height: 200%;
+            background: conic-gradient(from 0deg, transparent 0 340deg, #c05621 360deg);
+            animation: beam-spin 3s linear infinite;
+            opacity: 0; transition: opacity 0.3s;
+        }
+        .btn-dark:hover::before { opacity: 1; }
+        .btn-dark .btn-inner {
+            position: relative; z-index: 1; background: #0a0a0a;
+            border-radius: inherit; padding: 1.25rem 3.5rem; transition: background 0.3s;
+        }
+        .btn-dark:hover .btn-inner { background: #111; }
+
+        @keyframes slideUp {
+            0% { transform: translateY(100%); opacity: 0; }
+            100% { transform: translateY(0); opacity: 1; }
+        }
+        @keyframes slideDown {
+            0% { transform: translateY(0); opacity: 1; }
+            100% { transform: translateY(100%); opacity: 0; }
+        }
+        .cookie-enter { animation: slideUp 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+        .cookie-exit { animation: slideDown 0.4s cubic-bezier(0.7, 0, 0.84, 0) forwards; }
+
+        .modal-overlay {
+            opacity: 0; pointer-events: none; transition: opacity 0.3s ease;
+        }
+        .modal-overlay.open { opacity: 1; pointer-events: auto; }
+        .modal-overlay.open .modal-content {
+            transform: translateY(0) scale(1); opacity: 1;
+        }
+        .modal-content {
+            transform: translateY(20px) scale(0.98); opacity: 0;
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .dropdown-menu {
+            opacity: 0; pointer-events: none; transform: translateY(10px);
+            transition: all 0.2s ease;
+        }
+        .dropdown-menu.open { opacity: 1; pointer-events: auto; transform: translateY(0); }
+
+        .mobile-nav {
+            transform: translateX(100%);
+            transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .mobile-nav.open { transform: translateX(0); }
+
+        @keyframes pulse-ring {
+            0% { transform: scale(1); opacity: 0.6; }
+            100% { transform: scale(1.5); opacity: 0; }
+        }
+        .whatsapp-pulse::before {
+            content: ''; position: absolute; inset: 0; border-radius: 50%;
+            background: #25D366; animation: pulse-ring 1.5s ease-out infinite; z-index: -1;
+        }
+
+        @keyframes toastIn {
+            0% { transform: translateY(20px); opacity: 0; }
+            100% { transform: translateY(0); opacity: 1; }
+        }
+        @keyframes toastOut {
+            0% { transform: translateY(0); opacity: 1; }
+            100% { transform: translateY(20px); opacity: 0; }
+        }
+        .toast-in { animation: toastIn 0.3s ease forwards; }
+        .toast-out { animation: toastOut 0.3s ease forwards; }
+    </style>
+</head>
+<body class="font-geist text-white bg-[#0a0a0a]">
+
+    <!-- NAVIGATION -->
+    <nav class="fixed top-0 left-0 right-0 z-50 px-[5%] py-5" style="background: rgba(10,10,10,0.95); backdrop-filter: blur(8px); border-bottom: 1px solid rgba(255,255,255,0.08);">
+        <div class="max-w-[1600px] mx-auto flex items-center justify-between">
+            <a href="#" class="flex items-center gap-2">
+                <iconify-icon icon="solar:code-square-linear" width="28"></iconify-icon>
+                <span class="font-semibold text-lg tracking-tight">kasimade<span class="text-[#c05621]">webz</span></span>
+            </a>
+            <div class="hidden md:flex items-center gap-8">
+                <a href="#about" class="text-sm text-zinc-400 hover:text-white transition-colors duration-200">About</a>
+                <div class="relative" id="legalDropdownWrap">
+                    <button onclick="toggleDropdown()" class="text-sm text-zinc-400 hover:text-white transition-colors duration-200 flex items-center gap-1">
+                        Legal
+                        <iconify-icon icon="solar:alt-arrow-down-linear" width="14"></iconify-icon>
+                    </button>
+                    <div id="legalDropdown" class="dropdown-menu absolute top-full right-0 mt-2 w-48 bg-white rounded-lg shadow-xl border border-zinc-100 py-2">
+                        <button onclick="openModal('privacy')" class="w-full text-left px-4 py-2.5 text-sm text-zinc-700 hover:bg-zinc-50 transition-colors">Privacy Policy</button>
+                        <button onclick="openModal('terms')" class="w-full text-left px-4 py-2.5 text-sm text-zinc-700 hover:bg-zinc-50 transition-colors">Terms of Service</button>
+                        <button onclick="openModal('cookies')" class="w-full text-left px-4 py-2.5 text-sm text-zinc-700 hover:bg-zinc-50 transition-colors">Cookie Policy</button>
+                        <button onclick="openModal('disclaimer')" class="w-full text-left px-4 py-2.5 text-sm text-zinc-700 hover:bg-zinc-50 transition-colors">Disclaimer</button>
+                    </div>
+                </div>
+                <a href="https://wa.me/27705583893?text=Hi%20Kasimade%20Webz%2C%20I%27m%20interested%20in%20a%20website." target="_blank" rel="noopener noreferrer" class="text-sm font-medium text-black bg-white px-5 py-2.5 rounded-full hover:bg-zinc-200 transition-colors duration-200">
+                    Get a Quote
+                </a>
+            </div>
+            <button onclick="toggleMobileNav()" class="md:hidden text-white" aria-label="Open menu">
+                <iconify-icon icon="solar:hamburger-menu-linear" width="28"></iconify-icon>
+            </button>
+        </div>
+    </nav>
+
+    <!-- MOBILE NAV -->
+    <div class="mobile-nav fixed inset-0 z-[60] bg-[#0a0a0a] flex flex-col" id="mobileNav">
+        <div class="px-[5%] py-5 flex items-center justify-between">
+            <a href="#" class="flex items-center gap-2">
+                <iconify-icon icon="solar:code-square-linear" width="28"></iconify-icon>
+                <span class="font-semibold text-lg tracking-tight">kasimade<span class="text-[#c05621]">webz</span></span>
+            </a>
+            <button onclick="toggleMobileNav()" class="text-white" aria-label="Close menu">
+                <iconify-icon icon="solar:close-circle-linear" width="28"></iconify-icon>
+            </button>
+        </div>
+        <div class="flex-1 flex flex-col items-center justify-center gap-8">
+            <a href="#about" onclick="toggleMobileNav()" class="text-3xl font-light">About</a>
+            <div class="flex flex-col items-center gap-3 mt-4">
+                <button onclick="openModal('privacy'); toggleMobileNav();" class="text-zinc-400 hover:text-white transition-colors">Privacy Policy</button>
+                <button onclick="openModal('terms'); toggleMobileNav();" class="text-zinc-400 hover:text-white transition-colors">Terms of Service</button>
+                <button onclick="openModal('cookies'); toggleMobileNav();" class="text-zinc-400 hover:text-white transition-colors">Cookie Policy</button>
+                <button onclick="openModal('disclaimer'); toggleMobileNav();" class="text-zinc-400 hover:text-white transition-colors">Disclaimer</button>
+            </div>
+            <a href="https://wa.me/27705583893?text=Hi%20Kasimade%20Webz%2C%20I%27m%20interested%20in%20a%20website." target="_blank" rel="noopener noreferrer" class="mt-6 text-lg font-medium text-black bg-white px-8 py-4 rounded-full">
+                Get a Quote
+            </a>
+        </div>
+    </div>
+
+    <!-- HERO (BLACK) -->
+    <section class="relative min-h-screen flex flex-col justify-center items-center px-[5%] pt-32 pb-24 bg-[#0a0a0a] overflow-hidden">
+        <div class="absolute inset-0" style="background: radial-gradient(ellipse at 50% 0%, rgba(192,86,33,0.08) 0%, transparent 60%);"></div>
+        <div class="max-w-[1600px] mx-auto w-full text-center relative z-10">
+            <div class="reveal inline-flex items-center gap-2 px-4 py-2 rounded-full border border-white/10 mb-8" style="background: rgba(255,255,255,0.03);">
+                <span class="w-2 h-2 rounded-full bg-[#22c55e]"></span>
+                <span class="text-xs font-medium uppercase tracking-widest text-zinc-400">Available for new projects</span>
+            </div>
+            <h1 class="reveal delay-100 font-light tracking-tighter leading-[0.95]" style="font-size: clamp(3rem, 9vw, 8rem);">
+                Websites from<br>
+                <span class="font-newsreader italic text-[#c05621]">R400</span>
+            </h1>
+            <p class="reveal delay-200 mt-8 text-lg md:text-xl font-light text-zinc-400 max-w-2xl mx-auto leading-relaxed">
+                100% static, mobile-friendly websites. No monthly fees. You pay once, you own it.
+            </p>
+            <div class="reveal delay-300 mt-12 flex flex-col sm:flex-row items-center justify-center gap-4">
+                <a href="https://wa.me/27705583893?text=Hi%20Kasimade%20Webz%2C%20I%27d%20like%20to%20order%20a%20website." target="_blank" rel="noopener noreferrer" class="btn-beam rounded-full">
+                    <span class="btn-inner rounded-full flex items-center gap-3 font-medium text-lg">
+                        <iconify-icon icon="logos:whatsapp-icon" width="22"></iconify-icon>
+                        Order on WhatsApp
+                    </span>
+                </a>
+            </div>
+            <div class="reveal delay-300 mt-8 flex flex-wrap items-center justify-center gap-8 text-zinc-500 text-sm">
+                <span class="flex items-center gap-2">
+                    <iconify-icon icon="solar:shield-check-linear" width="18" class="text-[#22c55e]"></iconify-icon>
+                    100% Static
+                </span>
+                <span class="flex items-center gap-2">
+                    <iconify-icon icon="solar:smartphone-linear" width="18" class="text-[#22c55e]"></iconify-icon>
+                    Mobile Friendly
+                </span>
+                <span class="flex items-center gap-2">
+                    <iconify-icon icon="solar:wallet-linear" width="18" class="text-[#22c55e]"></iconify-icon>
+                    R400 – R1,000
+                </span>
+            </div>
+        </div>
+        <div class="absolute bottom-0 left-0 right-0 h-32" style="background: linear-gradient(to top, #ffffff 0%, transparent 100%);"></div>
+    </section>
+
+    <!-- WHITE SECTION -->
+    <section id="about" class="bg-white text-zinc-900" style="padding: clamp(80px, 10vw, 160px) 5%;">
+        <div class="max-w-[1600px] mx-auto">
+            <div class="reveal">
+                <span class="text-xs font-semibold uppercase tracking-widest text-[#c05621]">What you get</span>
+                <h2 class="mt-4 font-semibold tracking-tight leading-tight" style="font-size: clamp(2.5rem, 6vw, 4.5rem);">
+                    A clean, working website
+                </h2>
+                <p class="mt-6 text-zinc-500 font-light text-lg max-w-2xl leading-relaxed">
+                    I build static websites — HTML, CSS and JavaScript only. No bloated frameworks, no databases, no monthly subscriptions. Your site loads fast, works on every phone and desktop, and costs between R400 and R1,000 depending on what you need.
+                </p>
+            </div>
+
+            <div class="mt-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="reveal delay-100 p-6 rounded-2xl border border-zinc-100">
+                    <iconify-icon icon="solar:smartphone-linear" width="32" class="text-[#c05621]"></iconify-icon>
+                    <h3 class="mt-4 text-lg font-medium tracking-tight">Mobile Friendly</h3>
+                    <p class="mt-2 text-sm text-zinc-500 font-light leading-relaxed">Looks great on phones, tablets and desktops.</p>
+                </div>
+                <div class="reveal delay-200 p-6 rounded-2xl border border-zinc-100">
+                    <iconify-icon icon="solar:bolt-linear" width="32" class="text-[#c05621]"></iconify-icon>
+                    <h3 class="mt-4 text-lg font-medium tracking-tight">Fast Loading</h3>
+                    <p class="mt-2 text-sm text-zinc-500 font-light leading-relaxed">Static files mean instant page loads.</p>
+                </div>
+                <div class="reveal delay-300 p-6 rounded-2xl border border-zinc-100">
+                    <iconify-icon icon="solar:shield-check-linear" width="32" class="text-[#c05621]"></iconify-icon>
+                    <h3 class="mt-4 text-lg font-medium tracking-tight">Secure</h3>
+                    <p class="mt-2 text-sm text-zinc-500 font-light leading-relaxed">No database = no SQL injection. Safe by design.</p>
+                </div>
+                <div class="reveal delay-300 p-6 rounded-2xl border border-zinc-100">
+                    <iconify-icon icon="solar:wallet-linear" width="32" class="text-[#c05621]"></iconify-icon>
+                    <h3 class="mt-4 text-lg font-medium tracking-tight">No Monthly Fees</h3>
+                    <p class="mt-2 text-sm text-zinc-500 font-light leading-relaxed">Pay once. The website is yours forever.</p>
+                </div>
+            </div>
+
+            <div class="reveal mt-20 rounded-3xl bg-zinc-900 p-12 md:p-20 text-center text-white relative overflow-hidden">
+                <div class="absolute inset-0" style="background: radial-gradient(ellipse at 50% 50%, rgba(192,86,33,0.15) 0%, transparent 60%);"></div>
+                <div class="relative z-10">
+                    <h2 class="font-semibold tracking-tight leading-tight" style="font-size: clamp(2rem, 5vw, 3.5rem);">
+                        Need a website?
+                    </h2>
+                    <p class="mt-4 text-zinc-400 font-light text-lg max-w-lg mx-auto">Send me a message on WhatsApp. Tell me what you need and I'll give you a price.</p>
+                    <a href="https://wa.me/27705583893?text=Hi%20Kasimade%20Webz%2C%20I%20need%20a%20website." target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-3 mt-10 bg-white text-black px-8 py-4 rounded-full font-medium text-lg hover:bg-zinc-200 transition-colors duration-200">
+                        <iconify-icon icon="logos:whatsapp-icon" width="22"></iconify-icon>
+                        WhatsApp: 070 558 3893
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER (BLACK) -->
+    <footer class="bg-[#0a0a0a] text-white border-t border-white/5" style="padding: 60px 5% 40px;">
+        <div class="max-w-[1600px] mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
+                <div>
+                    <a href="#" class="flex items-center gap-2">
+                        <iconify-icon icon="solar:code-square-linear" width="28"></iconify-icon>
+                        <span class="font-semibold text-lg tracking-tight">kasimade<span class="text-[#c05621]">webz</span></span>
+                    </a>
+                    <p class="mt-4 text-zinc-500 font-light leading-relaxed text-sm max-w-xs">Affordable static website creation. 100% mobile friendly.</p>
+                </div>
+                <div>
+                    <h4 class="text-sm font-semibold uppercase tracking-widest text-zinc-400 mb-4">Contact</h4>
+                    <a href="https://wa.me/27705583893" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 text-sm text-zinc-500 hover:text-white transition-colors duration-200">
+                        <iconify-icon icon="logos:whatsapp-icon" width="16"></iconify-icon>
+                        070 558 3893
+                    </a>
+                </div>
+                <div>
+                    <h4 class="text-sm font-semibold uppercase tracking-widest text-zinc-400 mb-4">Legal</h4>
+                    <div class="space-y-3">
+                        <button onclick="openModal('privacy')" class="block text-sm text-zinc-500 hover:text-white transition-colors duration-200">Privacy Policy</button>
+                        <button onclick="openModal('terms')" class="block text-sm text-zinc-500 hover:text-white transition-colors duration-200">Terms of Service</button>
+                        <button onclick="openModal('cookies')" class="block text-sm text-zinc-500 hover:text-white transition-colors duration-200">Cookie Policy</button>
+                        <button onclick="openModal('disclaimer')" class="block text-sm text-zinc-500 hover:text-white transition-colors duration-200">Disclaimer</button>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-white/5 pt-8 text-center">
+                <p class="text-xs text-zinc-600">© 2026 kasimadewebz.co.za — All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- FLOATING WHATSAPP -->
+    <a href="https://wa.me/27705583893?text=Hi%20Kasimade%20Webz%2C%20I%20need%20a%20website." target="_blank" rel="noopener noreferrer" class="fixed bottom-6 right-6 z-50 w-14 h-14 bg-[#25D366] rounded-full flex items-center justify-center shadow-lg hover:scale-110 transition-transform duration-200 whatsapp-pulse" aria-label="Chat on WhatsApp">
+        <iconify-icon icon="logos:whatsapp-icon" width="28"></iconify-icon>
+    </a>
+
+    <!-- COOKIE BANNER -->
+    <div id="cookieBanner" class="fixed bottom-0 left-0 right-0 z-[70] cookie-enter" style="display: none;">
+        <div class="mx-[5%] mb-6 max-w-3xl ml-auto mr-auto bg-white rounded-2xl shadow-2xl p-6 md:p-8 border border-zinc-100">
+            <div class="flex items-start gap-4">
+                <div class="w-10 h-10 rounded-full bg-zinc-100 flex items-center justify-center flex-shrink-0 mt-0.5">
+                    <iconify-icon icon="solar:cookie-linear" width="20" class="text-zinc-600"></iconify-icon>
+                </div>
+                <div class="flex-1">
+                    <h3 class="text-base font-semibold text-zinc-900">We use cookies</h3>
+                    <p class="mt-2 text-sm text-zinc-500 font-light leading-relaxed">We use essential cookies to make this site work. See our <button onclick="openModal('cookies')" class="text-[#c05621] underline">Cookie Policy</button>.</p>
+                    <div class="mt-6 flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
+                        <button onclick="acceptAllCookies()" class="px-6 py-3 bg-zinc-900 text-white text-sm font-medium rounded-full hover:bg-zinc-800 transition-colors">Accept</button>
+                        <button onclick="rejectOptionalCookies()" class="px-6 py-3 bg-zinc-100 text-zinc-700 text-sm font-medium rounded-full hover:bg-zinc-200 transition-colors">Essential Only</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- TOAST CONTAINER -->
+    <div id="toastContainer" class="fixed bottom-24 right-6 z-[80] flex flex-col gap-2"></div>
+
+    <!-- MODAL: PRIVACY POLICY -->
+    <div id="modal-privacy" class="modal-overlay fixed inset-0 z-[90] flex items-center justify-center p-4" style="background: rgba(0,0,0,0.7); backdrop-filter: blur(4px);">
+        <div class="modal-content bg-white rounded-2xl max-w-2xl w-full max-h-[80vh] overflow-y-auto p-8 md:p-10 text-zinc-800">
+            <div class="flex items-center justify-between mb-6">
+                <h2 class="text-2xl font-semibold tracking-tight text-zinc-900">Privacy Policy</h2>
+                <button onclick="closeModal('privacy')" class="text-zinc-400 hover:text-zinc-700 transition-colors" aria-label="Close"><iconify-icon icon="solar:close-circle-linear" width="28"></iconify-icon></button>
+            </div>
+            <div class="text-sm text-zinc-600 font-light leading-relaxed space-y-4">
+                <p><strong class="text-zinc-800">Last updated:</strong> January 2026</p>
+                <p>kasimadewebz.co.za ("we", "us", "our") is committed to protecting your privacy in accordance with the Protection of Personal Information Act 4 of 2013 (POPIA) of South Africa.</p>
+                <h3 class="text-base font-semibold text-zinc-900 pt-2">1. Information We Collect</h3>
+                <p>We may collect the following personal information when you contact us via WhatsApp: your name, phone number, email address (if provided), business name, and website requirements.</p>
+                <h3 class="text-base font-semibold text-zinc-900 pt-2">2. How We Use Your Information</h3>
+                <p>Your information is used solely to respond to your website inquiries, provide and deliver our services, and communicate project updates.</p>
+                <h3 class="text-base font-semibold text-zinc-900 pt-2">3. Information Sharing</h3>
+                <p>We do not sell, rent, or share your personal information with third parties, except as required by South African law.</p>
+                <h3 class="text-base font-semibold text-zinc-900 pt-2">4. Data Storage & Security</h3>
+                <p>Conversations via WhatsApp are stored on Meta's servers. We do not store your data on our own servers beyond what is necessary for service delivery.</p>
+                <h3 class="text-base font-semibold text-zinc-900 pt-2">5. Your Rights (POPIA)</h3>
+                <p>You have the right to: request access to your data, request correction, request deletion, object to processing, and lodge a complaint with the Information Regulator of South Africa.</p>
+                <h3 class="text-base font-semibold text-zinc-900 pt-2">6. Contact</h3>
+                <p>For privacy-related queries, contact us at 070 558 3893 or via WhatsApp.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL: TERMS OF SERVICE -->
+    <div id="modal-terms" class="modal-overlay fixed inset-0 z-[90] flex items-center justify-center p-4" style="background: rgba(0,0,0,0.7); backdrop-filter: blur(4px);">
+        <div class="modal-content bg-white rounded-2xl max-w-2xl w-full max-h-[80vh] overflow-y-auto p-8 md:p-10 text-zinc-800">
+            <div class="flex items-center justify-between mb-6">
+                <h2 class="text-2xl font-semibold tracking-tight text-zinc-900">Terms of Service</h2>
+                <button onclick="closeModal('terms')" class="text-zinc-400 hover:text-zinc-700 transition-colors" aria-label="Close"><iconify-icon icon="solar:close-circle-linear" width="28"></iconify-icon></button>
+            </div>
+            <div class="text-sm text-zinc-600 font-light leading-relaxed space-y-4">
+                <p><strong class="text-zinc-800">Last updated:</strong> January 2026</p>
+                <p>By using kasimadewebz.co.za or engaging our services, you agree to these terms.</p>
+                <h3 class="text-base font-semibold text-zinc-900 pt-2">1. Services</h3>
+                <p>We provide 100% static website design and development services. All prices are in South African Rand (ZAR) and are one-time payments unless otherwise agreed. Prices range from R400 to R1,000.</p>
+                <h3 class="text-base font-semibold text-zinc-900 pt-2">2. Payment</h3>
+                <p>Full payment is required before final file delivery. No refunds are provided once the final deliverables have been sent.</p>
+                <h3 class="text-base font-semibold text-zinc-900 pt-2">3. Deliverables</h3>
+                <p>You will receive website files (HTML, CSS, JavaScript, images). Hosting, domain registration, and deployment are your responsibility unless arranged separately.</p>
+                <h3 class="text-base font-semibold text-zinc-900 pt-2">4. Content</h3>
+                <p>You are responsible for providing accurate content (text, images, logos). We are not liable for content that infringes on third-party intellectual property rights provided by you.</p>
+                <h3 class="text-base font-semibold text-zinc-900 pt-2">5. Revisions</h3>
+                <p>Minor revisions are included in the quoted price. Major structural changes after approval may incur additional charges.</p>
+                <h3 class="text-base font-semibold text-zinc-900 pt-2">6. Limitation of Liability</h3>
+                <p>We are not liable for any indirect, incidental, or consequential damages arising from the use of our services. Our total liability is limited to the amount paid for the specific service.</p>
+                <h3 class="text-base font-semibold text-zinc-900 pt-2">7. Governing Law</h3>
+                <p>These terms are governed by the laws of the Republic of South Africa.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL: COOKIE POLICY -->
+    <div id="modal-cookies" class="modal-overlay fixed inset-0 z-[90] flex items-center justify-center p-4" style="background: rgba(0,0,0,0.7); backdrop-filter: blur(4px);">
+        <div class="modal-content bg-white rounded-2xl max-w-2xl w-full max-h-[80vh] overflow-y-auto p-8 md:p-10 text-zinc-800">
+            <div class="flex items-center justify-between mb-6">
+                <h2 class="text-2xl font-semibold tracking-tight text-zinc-900">Cookie Policy</h2>
+                <button onclick="closeModal('cookies')" class="text-zinc-400 hover:text-zinc-700 transition-colors" aria-label="Close"><iconify-icon icon="solar:close-circle-linear" width="28"></iconify-icon></button>
+            </div>
+            <div class="text-sm text-zinc-600 font-light leading-relaxed space-y-4">
+                <p><strong class="text-zinc-800">Last updated:</strong> January 2026</p>
+                <p>This policy explains how kasimadewebz.co.za uses cookies and similar technologies, in compliance with POPIA and the Electronic Communications and Transactions Act (ECTA) of South Africa.</p>
+                <h3 class="text-base font-semibold text-zinc-900 pt-2">What Are Cookies?</h3>
+                <p>Cookies are small text files stored on your device when you visit a website. They help the site remember your preferences.</p>
+                <h3 class="text-base font-semibold text-zinc-900 pt-2">Types We Use</h3>
+                <p><strong class="text-zinc-800">Essential Cookies:</strong> Required for the site to function, including your cookie consent preference. These cannot be disabled.</p>
+                <h3 class="text-base font-semibold text-zinc-900 pt-2">Third-Party Cookies</h3>
+                <p>Links to WhatsApp may set cookies managed by Meta. We do not control these. Please refer to Meta's privacy policy for details.</p>
+                <h3 class="text-base font-semibold text-zinc-900 pt-2">Managing Cookies</h3>
+                <p>You can manage or delete cookies through your browser settings.</p>
+                <h3 class="text-base font-semibold text-zinc-900 pt-2">Contact</h3>
+                <p>For cookie-related queries: 070 558 3893</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL: DISCLAIMER -->
+    <div id="modal-disclaimer" class="modal-overlay fixed inset-0 z-[90] flex items-center justify-center p-4" style="background: rgba(0,0,0,0.7); backdrop-filter: blur(4px);">
+        <div class="modal-content bg-white rounded-2xl max-w-2xl w-full max-h-[80vh] overflow-y-auto p-8 md:p-10 text-zinc-800">
+            <div class="flex items-center justify-between mb-6">
+                <h2 class="text-2xl font-semibold tracking-tight text-zinc-900">Disclaimer</h2>
+                <button onclick="closeModal('disclaimer')" class="text-zinc-400 hover:text-zinc-700 transition-colors" aria-label="Close"><iconify-icon icon="solar:close-circle-linear" width="28"></iconify-icon></button>
+            </div>
+            <div class="text-sm text-zinc-600 font-light leading-relaxed space-y-4">
+                <p><strong class="text-zinc-800">Last updated:</strong> January 2026</p>
+                <p>The information on kasimadewebz.co.za is for general informational purposes only. While we strive to keep information accurate, we make no warranties of any kind about the completeness, accuracy, or suitability of the information.</p>
+                <p>Prices listed are subject to change without notice. The final price will be confirmed at the time of order.</p>
+                <p>External links (e.g., WhatsApp) are provided for convenience. We do not endorse or take responsibility for the content of external sites.</p>
+                <p>In no event will we be liable for any loss or damage, including without limitation indirect or consequential loss, arising from the use of this website.</p>
+                <p>This site complies with South African law, including POPIA and ECTA. By using this site, you acknowledge and accept this disclaimer.</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // ===== SCROLL REVEAL =====
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { rootMargin: '0px 0px -100px 0px', threshold: 0.1 });
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+        // ===== MOBILE NAV =====
+        function toggleMobileNav() {
+            document.getElementById('mobileNav').classList.toggle('open');
+            document.body.style.overflow = document.getElementById('mobileNav').classList.contains('open') ? 'hidden' : '';
+        }
+
+        // ===== DROPDOWN =====
+        function toggleDropdown() {
+            document.getElementById('legalDropdown').classList.toggle('open');
+        }
+        document.addEventListener('click', (e) => {
+            if (!document.getElementById('legalDropdownWrap').contains(e.target)) {
+                document.getElementById('legalDropdown').classList.remove('open');
+            }
+        });
+
+        // ===== MODALS =====
+        function openModal(name) {
+            document.getElementById('modal-' + name).classList.add('open');
+            document.body.style.overflow = 'hidden';
+            document.getElementById('legalDropdown').classList.remove('open');
+        }
+        function closeModal(name) {
+            document.getElementById('modal-' + name).classList.remove('open');
+            document.body.style.overflow = '';
+        }
+        document.querySelectorAll('.modal-overlay').forEach(overlay => {
+            overlay.addEventListener('click', (e) => {
+                if (e.target === overlay) {
+                    overlay.classList.remove('open');
+                    document.body.style.overflow = '';
+                }
+            });
+        });
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                document.querySelectorAll('.modal-overlay.open').forEach(m => {
+                    m.classList.remove('open');
+                });
+                document.body.style.overflow = '';
+            }
+        });
+
+        // ===== COOKIE CONSENT =====
+        const COOKIE_KEY = 'kasimadewebz_cookie_consent';
+
+        function getConsent() {
+            try { return JSON.parse(localStorage.getItem(COOKIE_KEY)); } catch { return null; }
+        }
+        function setConsent(val) {
+            localStorage.setItem(COOKIE_KEY, JSON.stringify({ value: val, timestamp: new Date().toISOString() }));
+        }
+        function showCookieBanner() {
+            const b = document.getElementById('cookieBanner');
+            b.style.display = 'block';
+            b.classList.remove('cookie-exit');
+            b.classList.add('cookie-enter');
+        }
+        function hideCookieBanner() {
+            const b = document.getElementById('cookieBanner');
+            b.classList.remove('cookie-enter');
+            b.classList.add('cookie-exit');
+            setTimeout(() => { b.style.display = 'none'; }, 400);
+        }
+        function acceptAllCookies() {
+            setConsent('accepted_all');
+            hideCookieBanner();
+            showToast('Preferences saved', 'All cookies accepted.');
+        }
+        function rejectOptionalCookies() {
+            setConsent('essential_only');
+            hideCookieBanner();
+            showToast('Preferences saved', 'Only essential cookies active.');
+        }
+        if (!getConsent()) {
+            setTimeout(showCookieBanner, 1500);
+        }
+
+        // ===== TOAST =====
+        function showToast(title, message) {
+            const c = document.getElementById('toastContainer');
+            const t = document.createElement('div');
+            t.className = 'toast-in bg-zinc-900 text-white rounded-xl px-5 py-4 shadow-xl max-w-xs border border-white/10';
+            t.innerHTML = `<p class="text-sm font-medium">${title}</p><p class="text-xs text-zinc-400 mt-1">${message}</p>`;
+            c.appendChild(t);
+            setTimeout(() => {
+                t.classList.remove('toast-in');
+                t.classList.add('toast-out');
+                setTimeout(() => t.remove(), 300);
+            }, 3000);
+        }
+    </script>
+</body>
+</html>
